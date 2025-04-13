@@ -15,7 +15,6 @@ AviUtl拡張編集用、GPUを使用した高速・高精度放射ブラース�
 ### keep_size
 サイズを保持したままエフェクトをかけるか
 ### quality
-(描画回数 - 1) / 2  
 数字が大きければ大きいほどブラーとしての精度は向上するが、重くなります。
 ### reload
 シェーダーを都度リロードするか  
@@ -28,7 +27,7 @@ AviUtl拡張編集用、GPUを使用した高速・高精度放射ブラース�
 `package.path`変数を編集し、requireで読めるようにしてから、
 ```
 local RadBlur_M = require("RadBlur_M")
-RadBlur_M.RadBlur_M(x, y, amount, r_pos, keep_size, quality, reload)
+RadBlur_M.RadBlur_M(x, y, amount, keep_size, quality, reload)
 ```
 と呼び出すことにより、objバッファにエフェクトがかけられます。
 
@@ -37,8 +36,7 @@ RadBlur_M.RadBlur_M(x, y, amount, r_pos, keep_size, quality, reload)
 |---------|----------------------|-------|--------|
 |x        |X座標                 |number |ピクセル|
 |y        |Y座標                 |number |ピクセル|
-|amount   |角度                  |number |ラジアン|
-|r_pos    |基準座標              |number |なし    |
+|amount   |エフェクトの程度      |number |なし?   |
 |keep_size|サイズ保持            |boolean|なし    |
-|quality  |(描画回数 - 1) / 2    |number |なし    |
+|quality  |描画精度              |number |なし    |
 |reload   |シェーダーの再読み込み|boolean|なし    |
