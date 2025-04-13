@@ -1,0 +1,22 @@
+--track0:X,-10000,10000,0
+--track1:Y,-10000,10000,0
+--track2:amount,0,75,20
+--dialog:keep_size/chk,_1=0;quality,_2=8;reload/chk,_3=0;PI,_0=nil
+
+obj.setanchor("track", 0, "line")
+
+_0 = _0 or {}
+local x = _0[1] or obj.track0
+local y = _0[2] or obj.track1
+local amount = _0[3] or obj.track2
+local keep_size = (_1 or 1) ~= 0
+local quality = math.max(_2 or 8, 0)
+local reload = (_3 or 0) ~= 0
+
+_0 = nil
+_1 = nil
+_2 = nil
+_3 = nil
+
+local RadBlur_M = require("RadBlur_M")
+RadBlur_M.RadBlur_M(x, y, amount, keep_size, quality, reload)
